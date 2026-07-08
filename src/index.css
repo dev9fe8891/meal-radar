@@ -1,0 +1,10 @@
+@import "./tokens.css";
+@import "./reset.css";
+@import "./base.css";
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  line-height: var(--lh-base);
+}
