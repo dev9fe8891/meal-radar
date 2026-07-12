@@ -9,16 +9,20 @@ import {
   SingleMealPage,
 } from "./pages";
 
+import { loader as HomePageLoader } from "./pages/HomePage";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <RootErrorBoundary />,
+    hydrateFallbackElement: <div>Loading app...</div>,
     children: [
       {
         index: true,
         element: <HomePage />,
         errorElement: <RouteErrorBoundary />,
+        loader: HomePageLoader,
       },
       {
         path: "meals/:id",
