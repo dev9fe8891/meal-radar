@@ -10,6 +10,7 @@ import {
 } from "./pages";
 
 import { loader as HomePageLoader } from "./pages/HomePage";
+import { loader as SingleMealPageLoader } from "./pages/SingleMealPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
         path: "meals/:id",
         element: <SingleMealPage />,
         errorElement: <RouteErrorBoundary />,
+        loader: SingleMealPageLoader,
       },
       {
         path: "about",

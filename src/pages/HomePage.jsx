@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const searchMealByNameUrl =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -24,6 +24,7 @@ function HomePage() {
         <div>{name}</div>
         <img src={image} alt={name} />
         <div>{country}</div>
+        <Link to={`/meals/${id}`}>details</Link>
       </div>
     );
   });
