@@ -22,7 +22,12 @@ function HomePage() {
   return (
     <div>
       <Form key={searchTerm}>
-        <input type="search" name="q" defaultValue={searchTerm} />
+        <input
+          type="search"
+          name="q"
+          defaultValue={searchTerm}
+          disabled={isSearching}
+        />
         <button type="submit" disabled={isSearching}>
           {isSearching ? "Searching..." : "Search"}
         </button>

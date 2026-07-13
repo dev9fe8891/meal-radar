@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import RootLayout from "./layouts/RootLayout";
+
 import {
   AboutPage,
   HomePage,
@@ -9,8 +11,9 @@ import {
   SingleMealPage,
 } from "./pages";
 
-import { loader as HomePageLoader } from "./pages/HomePage";
-import { loader as SingleMealPageLoader } from "./pages/SingleMealPage";
+import { loader as homePageLoader } from "./pages/HomePage";
+import { loader as singleMealPageLoader } from "./pages/SingleMealPage";
+import { action as newsletterPageAction } from "./pages/NewsletterPage";
 
 const router = createBrowserRouter([
   {
@@ -23,13 +26,13 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
         errorElement: <RouteErrorBoundary />,
-        loader: HomePageLoader,
+        loader: homePageLoader,
       },
       {
         path: "meals/:id",
         element: <SingleMealPage />,
         errorElement: <RouteErrorBoundary />,
-        loader: SingleMealPageLoader,
+        loader: singleMealPageLoader,
       },
       {
         path: "about",
@@ -40,6 +43,7 @@ const router = createBrowserRouter([
         path: "newsletter",
         element: <NewsletterPage />,
         errorElement: <RouteErrorBoundary />,
+        action: newsletterPageAction,
       },
     ],
   },
