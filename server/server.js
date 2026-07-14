@@ -1,7 +1,15 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+const isProduction = process.env.NODE_ENV === "production";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, "../dist");
 
 app.use(cors());
 app.use(express.json());
@@ -27,6 +35,14 @@ app.post("/api/newsletter", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log("Server is running on http://localhost:5000");
+if (isProduction) {
+  app.use(express.static(distPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

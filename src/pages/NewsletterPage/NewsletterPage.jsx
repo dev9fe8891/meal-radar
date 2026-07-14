@@ -13,10 +13,7 @@ export const action = async ({ request }) => {
   const subscriberData = Object.fromEntries(formData);
 
   try {
-    const response = await axios.post(
-      "http://localhost:5000/api/newsletter",
-      subscriberData,
-    );
+    const response = await axios.post("/api/newsletter", subscriberData);
 
     return {
       success: true,
