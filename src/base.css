@@ -1,174 +1,64 @@
-/* --- Typography & Headings --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--text-main);
+  color: var(--text-strong);
   font-weight: var(--weight-bold);
   line-height: var(--lh-tight);
-  margin-bottom: var(--space-4);
-}
-
-h1 {
-  font-size: var(--text-4xl);
-}
-h2 {
-  font-size: var(--text-3xl);
-}
-h3 {
-  font-size: var(--text-2xl);
-}
-h4 {
-  font-size: var(--text-xl);
-}
-h5 {
-  font-size: var(--text-lg);
-}
-h6 {
-  font-size: var(--text-md);
 }
 
 p {
-  margin-bottom: var(--space-4);
-  color: var(--color-slate-700);
-  line-height: var(--lh-base);
-}
-
-a {
-  color: var(--color-primary-600);
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--color-primary-700);
-}
-
-/* --- Form Elements --- */
-label {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  color: var(--color-slate-700);
-  margin-bottom: var(--space-1);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-select,
-textarea {
-  width: 100%;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
   color: var(--text-main);
-  background-color: var(--bg-main);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px var(--color-primary-100);
-}
-
-textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  accent-color: var(--color-primary-600);
+/* Form Resets (Non-aggressive) */
+button {
+  background-color: transparent;
   cursor: pointer;
 }
 
-/* --- Buttons --- */
-button,
-.btn-base {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  border-radius: var(--radius-md);
-  transition: all 0.2s ease;
+input,
+select,
+textarea {
+  accent-color: var(--color-primary-600);
 }
 
-/* Primary Button Example */
-.btn-primary {
-  background-color: var(--color-primary-600);
-  color: var(--color-white);
+textarea {
+  resize: vertical;
 }
 
-.btn-primary:hover {
-  background-color: var(--color-primary-700);
-}
-
-/* Secondary/Default Button */
-.btn-secondary {
-  background-color: var(--color-slate-100);
-  color: var(--color-slate-800);
-  border: 1px solid var(--border-light);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-slate-200);
-}
-
-button:disabled {
-  opacity: 0.5;
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
   cursor: not-allowed;
 }
 
-/* --- Tables --- */
-table {
-  width: 100%;
-  margin-bottom: var(--space-4);
-}
-
-th {
-  background-color: var(--bg-subtle);
-  font-weight: var(--weight-semibold);
-  text-align: left;
-  padding: var(--space-3);
-  font-size: var(--text-sm);
-  border-bottom: 2px solid var(--border-light);
-}
-
-td {
-  padding: var(--space-3);
-  font-size: var(--text-sm);
-  border-bottom: 1px solid var(--border-light);
-}
-
-/* --- Content Blocks --- */
-blockquote {
-  border-left: 4px solid var(--color-primary-500);
-  padding: var(--space-2) var(--space-4);
-  margin: var(--space-6) 0;
-  background-color: var(--color-primary-50);
-  font-style: italic;
-}
-
+/* Separators */
 hr {
   border: 0;
-  border-top: 1px solid var(--border-light);
-  margin: var(--space-8) 0;
+  border-top: 1px solid var(--color-slate-200);
 }

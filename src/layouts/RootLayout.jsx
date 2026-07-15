@@ -4,13 +4,13 @@ import Footer from "../components/Footer";
 
 function RootLayout() {
   return (
-    <>
+    <div className="app">
       <Header />
-      <main>
+      <main className="app__main">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
