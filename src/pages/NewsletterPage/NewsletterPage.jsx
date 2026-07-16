@@ -20,9 +20,10 @@ export const action = async ({ request }) => {
       message: response.data.message || "Subscribed successfully!",
     };
   } catch (error) {
-    if (error.response && error.response.status === 400) {
-      const serverErrors = error.response.data.errors;
-      const firstErrorMessage = Object.values(serverErrors)[0];
+    if (error.response?.status === 400) {
+      const firstErrorMessage = Object.values(
+        error.response?.data?.errors || {},
+      )[0];
 
       return {
         success: false,

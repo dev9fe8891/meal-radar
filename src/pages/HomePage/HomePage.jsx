@@ -1,5 +1,8 @@
 import axios from "axios";
-import { Form, Link, useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
+import SearchForm from "../../components/Main/Home/SearchForm";
+import Wrapper from "./HomePage.styled";
+import MealList from "../../components/Main/Home/MealList";
 
 const searchMealByNameUrl =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -20,35 +23,12 @@ function HomePage() {
     navigation.location?.search.includes("q=");
 
   return (
-    <div>
-      <Form key={searchTerm}>
-        <input
-          type="search"
-          name="q"
-          defaultValue={searchTerm}
-          disabled={isSearching}
-        />
-        <button type="submit" disabled={isSearching}>
-          {isSearching ? "Searching..." : "Search"}
-        </button>
-      </Form>
-      {meals.map((meal) => {
-        const {
-          idMeal: id,
-          strMeal: name,
-          strMealThumb: image,
-          strCountry: country,
-        } = meal;
-        return (
-          <div key={id}>
-            <div>{name}</div>
-            <img src={image} alt={name} />
-            <div>{country}</div>
-            <Link to={`/meals/${id}`}>details</Link>
-          </div>
-        );
-      })}
-    </div>
+    <Wrapper className="home">
+      <div className="home__container container">
+        <SearchForm searchTerm={searchTerm} isSearching={isSearching} />
+        <MealList meals={meals} />
+      </div>
+    </Wrapper>
   );
 }
 

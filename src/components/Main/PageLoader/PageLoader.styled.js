@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   &.page-loader {
-    min-height: calc(100dvh - 12rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--space-3);
+    min-height: calc(100dvh - 12rem);
     padding: var(--space-8) var(--layout-gutter);
     text-align: center;
   }
