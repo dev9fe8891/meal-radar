@@ -1,10 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Wrapper from "./Header.styled";
 
 function Header() {
   return (
     <Wrapper className="header">
       <div className="header__container container">
+        <Link className="header__logo" to="/">
+          MealRadar
+        </Link>
+
         <nav className="header__nav">
           <NavLink className="header__link" to="/">
             Home
