@@ -3,7 +3,7 @@ import Wrapper from "./Header.styled";
 
 function Header() {
   return (
-    <Wrapper>
+    <Wrapper className="header">
       <div className="header__container container">
         <nav className="header__nav">
           <NavLink className="header__link" to="/">
