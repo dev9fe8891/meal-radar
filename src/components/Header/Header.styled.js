@@ -9,8 +9,8 @@ const Wrapper = styled.header`
   .header__container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
+    align-items: flex-start;
     gap: var(--space-3);
     min-height: 64px;
     padding-block: var(--space-3);
@@ -38,10 +38,7 @@ const Wrapper = styled.header`
   }
 
   .header__link:hover,
-  .header__link:focus-visible {
-    color: var(--color-primary-600);
-  }
-
+  .header__link:focus-visible,
   .header__link.active {
     color: var(--color-primary-600);
   }
@@ -49,8 +46,8 @@ const Wrapper = styled.header`
   @media (min-width: 768px) {
     .header__container {
       flex-direction: row;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: var(--space-4);
       min-height: 72px;
       padding-block: 0;
