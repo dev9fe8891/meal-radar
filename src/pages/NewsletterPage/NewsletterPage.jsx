@@ -7,6 +7,7 @@ import {
   useNavigation,
 } from "react-router-dom";
 import { toast } from "react-toastify";
+import Wrapper from "./NewsletterPage.styled";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -64,32 +65,58 @@ function NewsletterPage() {
   }, [actionData, navigate]);
 
   return (
-    <div>
-      <div>Our Newsletter</div>
-      <Form method="POST" noValidate>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Name"
-          disabled={isSubmitting}
-        />
+    <Wrapper className="newsletter" aria-labelledby="newsletter-title">
+      <div className="newsletter__container container">
+        <header className="newsletter__header">
+          <p className="newsletter__eyebrow">Stay in touch</p>
+          <h1 className="newsletter__title" id="newsletter-title">
+            Our Newsletter
+          </h1>
+          <p className="newsletter__description">
+            Subscribe to receive the latest recipes, cooking inspiration, and
+            updates delivered straight to your inbox.
+          </p>
+        </header>
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          disabled={isSubmitting}
-        />
+        <Form className="newsletter__form" method="POST" noValidate>
+          <div className="newsletter__field">
+            <label className="newsletter__label" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="newsletter__input"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+              disabled={isSubmitting}
+            />
+          </div>
 
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Subscribe"}
-        </button>
-      </Form>
-    </div>
+          <div className="newsletter__field">
+            <label className="newsletter__label" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="newsletter__input"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              disabled={isSubmitting}
+            />
+          </div>
+
+          <button
+            className="newsletter__button"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Subscribe"}
+          </button>
+        </Form>
+      </div>
+    </Wrapper>
   );
 }
 
