@@ -2,24 +2,17 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   &.about {
-    padding-block: var(--space-6);
-    background: linear-gradient(
-      180deg,
-      var(--color-primary-50) 0%,
-      var(--bg-subtle) 35%,
-      var(--bg-subtle) 100%
-    );
+    padding-block: var(--space-5);
   }
 
   .about__container {
     display: grid;
     gap: var(--space-4);
-    max-width: 48rem;
-    padding: var(--space-5);
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    box-shadow: 0 18px 40px rgb(15 23 42 / 0.08);
+    padding: var(--space-4);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .about__eyebrow {
@@ -33,9 +26,7 @@ const Wrapper = styled.section`
 
   .about__title {
     font-size: var(--text-2xl);
-    line-height: var(--lh-tight);
     letter-spacing: -0.02em;
-    color: var(--text-strong);
   }
 
   .about__description {
@@ -45,8 +36,23 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 768px) {
+    &.about {
+      padding-block: var(--space-6);
+      background: linear-gradient(
+        180deg,
+        var(--color-primary-50) 0%,
+        var(--bg-subtle) 35%,
+        var(--bg-subtle) 100%
+      );
+    }
+
     .about__container {
+      max-width: 48rem;
       padding: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgb(15 23 42 / 0.04);
     }
 
     .about__title {

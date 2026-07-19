@@ -14,7 +14,6 @@ const Wrapper = styled(Form)`
   .home__search-label {
     color: var(--text-strong);
     font-weight: var(--weight-medium);
-    line-height: var(--lh-base);
   }
 
   .home__search-controls {
@@ -27,7 +26,6 @@ const Wrapper = styled(Form)`
     width: 100%;
     min-height: 2.75rem;
     padding-inline: var(--space-4);
-    color: var(--text-main);
     background-color: var(--bg-surface);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
@@ -48,7 +46,6 @@ const Wrapper = styled(Form)`
   }
 
   .home__search-input:disabled {
-    cursor: not-allowed;
     opacity: 0.7;
     background-color: var(--bg-subtle);
   }
@@ -56,8 +53,8 @@ const Wrapper = styled(Form)`
   .home__search-button {
     min-height: 2.75rem;
     padding-inline: var(--space-5);
-    color: var(--text-inverse);
     font-weight: var(--weight-medium);
+    color: var(--text-inverse);
     background-color: var(--color-primary-600);
     border: 1px solid transparent;
     border-radius: var(--radius-md);
@@ -77,7 +74,6 @@ const Wrapper = styled(Form)`
   }
 
   .home__search-button:disabled {
-    cursor: not-allowed;
     opacity: 0.7;
   }
 

@@ -30,7 +30,6 @@ const Wrapper = styled.footer`
   .footer__text {
     max-width: 32ch;
     font-size: var(--text-sm);
-    line-height: var(--lh-base);
     color: var(--text-muted);
   }
 
@@ -43,7 +42,6 @@ const Wrapper = styled.footer`
   .footer__link {
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
-    line-height: var(--lh-base);
     color: var(--text-muted);
     transition: color 0.2s ease;
   }
@@ -56,7 +54,6 @@ const Wrapper = styled.footer`
 
   .footer__copy {
     font-size: var(--text-xs);
-    line-height: var(--lh-base);
     color: var(--text-muted);
   }
 

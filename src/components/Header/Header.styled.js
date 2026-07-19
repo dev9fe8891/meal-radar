@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.header`
   &.header {
+    min-height: 64px;
+    padding-block: var(--space-3);
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-default);
   }
@@ -9,11 +11,7 @@ const Wrapper = styled.header`
   .header__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     gap: var(--space-3);
-    min-height: 64px;
-    padding-block: var(--space-3);
   }
 
   .header__logo {
@@ -44,13 +42,18 @@ const Wrapper = styled.header`
   }
 
   @media (min-width: 768px) {
+    &.header {
+      display: flex;
+      align-items: center;
+      min-height: 72px;
+      padding-block: 0;
+    }
+
     .header__container {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       gap: var(--space-4);
-      min-height: 72px;
-      padding-block: 0;
     }
 
     .header__nav {

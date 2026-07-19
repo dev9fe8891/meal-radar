@@ -4,8 +4,8 @@ const Wrapper = styled.div`
   &.page-loader {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: var(--space-3);
     min-height: calc(100dvh - 12rem);
     padding: var(--space-8) var(--layout-gutter);

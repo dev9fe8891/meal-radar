@@ -2,23 +2,17 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   &.newsletter {
-    padding-block: var(--space-6);
-    background: linear-gradient(
-      180deg,
-      var(--color-primary-50) 0%,
-      var(--bg-subtle) 30%,
-      var(--bg-subtle) 100%
-    );
+    padding-block: var(--space-5);
   }
 
   .newsletter__container {
     display: grid;
     gap: var(--space-5);
     max-width: 42rem;
-    padding: var(--space-5);
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
   }
 
   .newsletter__header {
@@ -38,9 +32,7 @@ const Wrapper = styled.section`
 
   .newsletter__title {
     font-size: var(--text-2xl);
-    line-height: var(--lh-tight);
     letter-spacing: -0.02em;
-    color: var(--text-strong);
   }
 
   .newsletter__description {
@@ -53,10 +45,6 @@ const Wrapper = styled.section`
   .newsletter__form {
     display: grid;
     gap: var(--space-4);
-    padding: var(--space-5);
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
   }
 
   .newsletter__field {
@@ -74,7 +62,6 @@ const Wrapper = styled.section`
     width: 100%;
     min-height: 2.75rem;
     padding-inline: var(--space-4);
-    color: var(--text-main);
     background-color: var(--bg-surface);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
@@ -124,13 +111,26 @@ const Wrapper = styled.section`
   }
 
   .newsletter__button:disabled {
-    cursor: not-allowed;
     opacity: 0.7;
   }
 
   @media (min-width: 768px) {
+    &.newsletter {
+      padding-block: var(--space-6);
+      background: linear-gradient(
+        180deg,
+        var(--color-primary-50) 0%,
+        var(--bg-subtle) 30%,
+        var(--bg-subtle) 100%
+      );
+    }
+
     .newsletter__container {
       padding: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgb(15 23 42 / 0.04);
     }
 
     .newsletter__title {

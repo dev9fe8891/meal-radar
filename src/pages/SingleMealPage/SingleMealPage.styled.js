@@ -20,8 +20,8 @@ const Wrapper = styled.div`
   .single-meal__back-button,
   .single-meal__home-link {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 2.75rem;
     padding-inline: var(--space-5);
     font-weight: var(--weight-medium);
@@ -53,8 +53,8 @@ const Wrapper = styled.div`
   }
 
   .single-meal__card {
-    display: grid;
     overflow: hidden;
+    display: grid;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
@@ -76,9 +76,9 @@ const Wrapper = styled.div`
   }
 
   .single-meal__title {
-    color: var(--color-primary-700);
     font-size: var(--text-2xl);
     line-height: var(--lh-tight);
+    color: var(--color-primary-700);
   }
 
   .single-meal__meta {
@@ -94,12 +94,8 @@ const Wrapper = styled.div`
   }
 
   .single-meal__meta-label {
-    color: var(--color-primary-500);
     font-weight: var(--weight-medium);
-  }
-
-  .single-meal__meta-value {
-    color: var(--text-main);
+    color: var(--color-primary-500);
   }
 
   .single-meal__section {
@@ -108,9 +104,9 @@ const Wrapper = styled.div`
   }
 
   .single-meal__section-title {
-    color: var(--text-strong);
     font-size: var(--text-xl);
     line-height: var(--lh-tight);
+    color: var(--text-strong);
   }
 
   .single-meal__ingredients {
@@ -127,8 +123,8 @@ const Wrapper = styled.div`
   }
 
   .single-meal__ingredient-name {
-    color: var(--text-strong);
     font-weight: var(--weight-medium);
+    color: var(--text-strong);
   }
 
   .single-meal__ingredient-measure {
@@ -137,15 +133,13 @@ const Wrapper = styled.div`
   }
 
   .single-meal__instructions {
-    color: var(--text-main);
-    line-height: var(--lh-base);
     white-space: pre-line;
   }
 
   @media (min-width: 768px) {
     .single-meal__card {
-      grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
       overflow: initial;
+      grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
     }
 
     .single-meal__figure {
