@@ -14,25 +14,38 @@ import {
 import { loader as homePageLoader } from "./pages/HomePage";
 import { loader as singleMealPageLoader } from "./pages/SingleMealPage";
 import { action as newsletterPageAction } from "./pages/NewsletterPage";
+import PageLoader from "./components/Main/PageLoader";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <RootErrorBoundary />,
-    hydrateFallbackElement: <div>Loading app...</div>,
+    hydrateFallbackElement: <PageLoader />,
     children: [
       {
         index: true,
         element: <HomePage />,
         errorElement: <RouteErrorBoundary />,
-        loader: homePageLoader,
+        loader: homePageLoader(queryClient),
       },
       {
         path: "meals/:id",
         element: <SingleMealPage />,
         errorElement: <RouteErrorBoundary />,
-        loader: singleMealPageLoader,
+        loader: singleMealPageLoader(queryClient),
       },
       {
         path: "about",
@@ -50,7 +63,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

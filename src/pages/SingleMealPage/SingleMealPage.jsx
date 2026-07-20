@@ -1,26 +1,46 @@
 import axios from "axios";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Wrapper from "./SingleMealPage.styled";
+import { useQuery } from "@tanstack/react-query";
 
 const lookupMealByIdUrl =
   "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 
-export const loader = async ({ params }) => {
-  const { id } = params;
-  const { data } = await axios.get(`${lookupMealByIdUrl}${id}`);
+export const singleMealQuery = (id) => ({
+  queryKey: ["meals", "detail", id],
+  queryFn: async ({ signal }) => {
+    const { data } = await axios.get(lookupMealByIdUrl, {
+      params: { i: id },
+      signal,
+    });
 
-  const meal = data.meals?.[0];
+    const meal = data.meals?.[0];
 
-  if (!meal) {
-    throw new Response("Meal not found", { status: 404 });
-  }
+    if (!meal) {
+      throw new Response("Meal not found", { status: 404 });
+    }
 
-  return { meal };
-};
+    return meal;
+  },
+});
+
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const { id } = params;
+
+    await queryClient.ensureQueryData(singleMealQuery(id));
+
+    return { id };
+  };
 
 function SingleMealPage() {
-  const { meal } = useLoaderData();
+  const { id } = useLoaderData();
   const navigate = useNavigate();
+
+  const { data: meal } = useQuery(singleMealQuery(id));
+
+  if (!meal) return null;
 
   const {
     strMeal: name,
