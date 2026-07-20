@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
   &.error {
     padding-block: var(--space-5);
   }
