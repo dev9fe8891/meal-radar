@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
+
 const PORT = process.env.PORT || 5000;
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -11,8 +12,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distPath = path.join(__dirname, "../dist");
 
-app.use(cors());
 app.use(express.json());
+
+if (!isProduction) {
+  app.use(
+    cors({
+      origin: "http://localhost:5173",
+    }),
+  );
+}
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    environment: process.env.NODE_ENV || "development",
+  });
+});
 
 app.post("/api/newsletter", (req, res) => {
   const { name, email } = req.body;
@@ -35,14 +50,20 @@ app.post("/api/newsletter", (req, res) => {
   });
 });
 
+app.use("/api", (req, res) => {
+  res.status(404).json({
+    message: "API route not found.",
+  });
+});
+
 if (isProduction) {
   app.use(express.static(distPath));
 
-  app.get("*", (req, res) => {
+  app.get("/{*splat}", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
