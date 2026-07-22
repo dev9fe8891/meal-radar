@@ -7,9 +7,17 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: var(--space-3);
-    min-height: calc(100dvh - 12rem);
     padding: var(--space-8) var(--layout-gutter);
     text-align: center;
+    width: 100%;
+  }
+
+  &.page-loader--page {
+    min-height: 100%;
+  }
+
+  &.page-loader--screen {
+    min-height: 100dvh;
   }
 
   .page-loader__spinner {
