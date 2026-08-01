@@ -6,12 +6,14 @@ import MealList from "../../components/Main/Home/MealList";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 const searchMealByNameUrl =
-  "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+  "https://www.themealdb.com/api/json/v1/1/search.php";
 
 export const mealsQuery = (searchTerm = "") => ({
   queryKey: ["meals", searchTerm],
   queryFn: async () => {
-    const { data } = await axios.get(`${searchMealByNameUrl}${searchTerm}`);
+    const { data } = await axios.get(searchMealByNameUrl, {
+      params: { s: searchTerm },
+    });
     return data.meals ?? [];
   },
 });

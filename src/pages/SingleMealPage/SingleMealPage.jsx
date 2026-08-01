@@ -3,8 +3,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Wrapper from "./SingleMealPage.styled";
 import { useQuery } from "@tanstack/react-query";
 
-const lookupMealByIdUrl =
-  "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+const lookupMealByIdUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php";
 
 export const singleMealQuery = (id) => ({
   queryKey: ["meals", "detail", id],
