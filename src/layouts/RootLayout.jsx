@@ -11,7 +11,7 @@ function RootLayout() {
     <div className="app">
       <Header />
       <main className="app__main">
-        {isLoading ? <PageLoader /> : <Outlet />}
+        {isLoading ? <PageLoader variant="page" /> : <Outlet />}
       </main>
       <Footer />
     </div>

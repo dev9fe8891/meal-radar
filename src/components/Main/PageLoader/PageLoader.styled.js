@@ -3,7 +3,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   &.page-loader {
     display: flex;
-    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -11,6 +10,14 @@ const Wrapper = styled.div`
     padding: var(--space-8) var(--layout-gutter);
     text-align: center;
     width: 100%;
+  }
+
+  &.page-loader--page {
+    flex: 1;
+  }
+
+  &.page-loader--screen {
+    min-height: 100dvh;
   }
 
   .page-loader__spinner {
