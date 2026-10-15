@@ -39,7 +39,7 @@ MealRadar is a modern full-stack web application for discovering meals, explorin
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/meal-radar.git
+git clone https://github.com/dev9fe8891/meal-radar.git
 cd meal-radar
 npm install
 ```
